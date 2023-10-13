@@ -13,8 +13,7 @@ import java.util.UUID;
 
 public class ConsulLock {
     protected Logger log = LoggerFactory.getLogger(getClass());
-    private static final String prefix = "citybase-user-lock/";  // 同步锁参数前缀
- 
+
     private ConsulClient consulClient;
     private String sessionName;
     private String sessionId = null;
@@ -30,7 +29,7 @@ public class ConsulLock {
     public ConsulLock(ConsulClient consulClient, String lockKey) {
         this.consulClient = consulClient;
         this.sessionName = "consul-lock-session-"+UUID.randomUUID();
-        this.lockKey = prefix + lockKey;
+        this.lockKey = lockKey;
     }
  
     /**
